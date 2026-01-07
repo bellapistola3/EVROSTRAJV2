@@ -1,0 +1,17 @@
+{
+  "name": "ЕВРО СТРАЖ",
+  "short_name": "ЕВРО СТРАЖ",
+  "description": "Калкулатор за конвертиране от лева в евро и обратно",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#0062ff",
+  "icons": [
+    {
+      "src": "/share-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>ЕВРО СТРАЖ - Dimov Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- === НАЧАЛО НА НАСТРОЙКИТЕ ЗА СОЦИАЛНИ МРЕЖИ (КАРТАТА СЪС ЩИТА) === -->
+
+    <!-- Open Graph (за Facebook, Viber, LinkedIn, WhatsApp и др.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evrostraj.netlify.app/">
+    <!-- Заглавието на картата -->
+    <meta property="og:title" content="ЕВРО СТРАЖ - Твоят калкулатор за Евро 2026">
+    <!-- Описанието под заглавието -->
+    <meta property="og:description" content="Пресметни лесно от лева в евро. Бързо, точно и БЕЗПЛАТНО ДО ЖИВОТ!">
+    <!-- ВРЪЗКА КЪМ КАРТИНКАТА СЪС ЩИТА -->
+    <meta property="og:image" content="https://evrostraj.netlify.app/share-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Cards (специално за Twitter/X) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://evrostraj.netlify.app/">
+    <meta name="twitter:title" content="ЕВРО СТРАЖ - Твоят калкулатор за Евро 2026">
+    <meta name="twitter:description" content="Пресметни лесно от лева в евро. Бързо, точно и БЕЗПЛАТНО ДО ЖИВОТ!">
+    <!-- ВРЪЗКА КЪМ КАРТИНКАТА СЪС ЩИТА -->
+    <meta name="twitter:image" content="https://evrostraj.netlify.app/share-image.png">
+
+    <!-- === КРАЙ НА НАСТРОЙКИТЕ ЗА СОЦИАЛНИ МРЕЖИ === -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+    <style>
+        :root { --accent: #0062ff; --bg: #000; --card: #111; --danger: #ff3b30; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+        body { font-family: sans-serif; background: var(--bg); margin: 0; display: flex; flex-direction: column; align-items: center; color: white; min-height: 100vh; overflow-y: auto; }
+        .app { background: var(--card); width: 100%; max-width: 400px; height: 90vh; display: flex; flex-direction: column; border: 2px solid var(--accent); position: relative; flex-shrink: 0; margin-top: 10px; }
+        .header { text-align: center; padding: 6px; background: #000; font-size: 14px; font-weight: 900; color: var(--accent); letter-spacing: 2px; }
+        #speech { height: 40px; background: #111; color: var(--accent); text-align: center; padding: 10px; font-size: 13px; font-weight: bold; border-bottom: 1px solid #222; }
+        .display { padding: 10px; background: #181818; }
+        .field { background: #222; padding: 8px; border-radius: 10px; border: 1px solid #333; position: relative; cursor: pointer; transition: 0.2s; }
+        .field.active { border-color: var(--accent); background: #2a2a2a; }
+        .swap { display: block; margin: -14px auto; background: var(--accent); color: white; border: none; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; position: relative; z-index: 10; font-size: 18px; }
+        label { font-size: 10px; color: var(--accent); text-transform: uppercase; display: block; font-weight: bold; pointer-events: none; }
+        input { width: 100%; border: none; background: transparent; font-size: 26px; font-weight: 700; color: white; outline: none; padding: 2px 0; pointer-events: none; }
+        .unit { position: absolute; right: 12px; bottom: 8px; font-size: 12px; color: #555; font-weight: 900; }
+        .keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 8px; flex-grow: 1; background: #000; }
+        button { border: none; background: #222; color: white; font-size: 22px; font-weight: 600; border-radius: 8px; cursor: pointer; }
+        button:active { background: #444; }
+        .c-btn, .del-btn { background: var(--danger) !important; }
+        .mic-btn { background: var(--accent); }
+        .mic-btn.on { background: var(--danger) !important; animation: pulse 1s infinite; }
+        .op { color: var(--accent); font-size: 26px; }
+        .eq { background: var(--accent); grid-column: span 2; font-size: 14px; font-weight: 900; }
+        .footer-fixed { background: #000; border-top: 1px solid #222; width: 100%; }
+        #ad-space { min-height: 60px; background: #080808; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #111; }
+        .info-bar { padding: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .dimov { color: var(--accent); font-weight: 900; font-size: 12px; letter-spacing: 1px; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+    </style>
+</head>
+<body onload="setActive('bgn')">
+
+<div class="app">
+    <div class="header">ЕВРО СТРАЖ</div>
+    <div id="speech">Dimov Studio: Готов за работа</div>
+
+    <div class="display" id="cont">
+        <div class="field" id="f-bgn" onclick="setActive('bgn')">
+            <label>ЛЕВА (BGN)</label>
+            <input type="text" id="bgn" value="0" readonly>
+            <span class="unit">лв.</span>
+        </div>
+
+        <button class="swap" onclick="sw()">⇄</button>
+
+        <div class="field" id="f-eur" style="margin-top:6px;" onclick="setActive('eur')">
+            <label>ЕВРО (EUR)</label>
+            <input type="text" id="eur" value="0.00" readonly>
+            <span class="unit">€</span>
+        </div>
+    </div>
+
+    <div class="keys">
+        <button class="c-btn" onclick="cl()">C</button>
+        <button class="del-btn" onclick="dl()">⌫</button>
+        <button id="vBtn" class="mic-btn" onclick="vc()">🎤</button>
+        <button class="op" onclick="p('/')">÷</button>
+
+        <button onclick="p('7')">7</button><button onclick="p('8')">8</button><button onclick="p('9')">9</button>
+        <button class="op" onclick="p('*')">×</button>
+
+        <button onclick="p('4')">4</button><button onclick="p('5')">5</button><button onclick="p('6')">6</button>
+        <button class="op" onclick="p('-')">−</button>
+
+        <button onclick="p('1')">1</button><button onclick="p('2')">2</button><button onclick="p('3')">3</button>
+        <button class="op" onclick="p('+')">+</button>
+
+        <button onclick="p('0')">0</button><button onclick="p('.')">.</button>
+        <button class="eq" onclick="ex()">РАВНО</button>
+    </div>
+
+    <div class="footer-fixed">
+        <div id="ad-space"><small style="color:#333">БЕЗПЛАТНО ДО ЖИВОТ</small></div>
+        <div class="info-bar"><span class="dimov">DIMOV STUDIO</span><span style="color:#666; font-size:11px;">КУРС: 1.95583</span></div>
+    </div>
+</div>
+
+<script>
+    const R = 1.95583;
+    let exp = "";
+    let activeId = "bgn";
+
+    function setActive(id) {
+        activeId = id;
+        document.getElementById('f-bgn').classList.remove('active');
+        document.getElementById('f-eur').classList.remove('active');
+        document.getElementById('f-' + id).classList.add('active');
+        exp = document.getElementById(id).value;
+        if(exp === "0" || exp === "0.00") exp = "";
+        document.getElementById('speech').innerText = (id === "bgn" ? "Режим: Писане в ЛЕВА" : "Режим: Писане в ЕВРО");
+    }
+
+    function p(v) {
+        if(exp === "0" && v !== ".") exp = "";
+        exp += v;
+        document.getElementById(activeId).value = exp;
+        up();
+    }
+
+    function cl() {
+        exp = "";
+        document.getElementById('bgn').value = "0";
+        document.getElementById('eur').value = "0.00";
+        document.getElementById('speech').innerText = "Изчистено";
+    }
+
+    function dl() {
+        exp = exp.slice(0, -1);
+        document.getElementById(activeId).value = exp || "0";
+        up();
+    }
+
+    function up() {
+        try {
+            let v = eval(exp.replace('×','*').replace('÷','/')) || 0;
+            if(activeId === "bgn") {
+                document.getElementById('eur').value = (v / R).toFixed(2);
+            } else {
+                document.getElementById('bgn').value = (v * R).toFixed(2);
+            }
+        } catch(e){}
+    }
+
+    function ex() {
+        try {
+            let r = eval(exp.replace('×','*').replace('÷','/'));
+            let res = r.toFixed(2);
+            if(activeId === "bgn") {
+                document.getElementById('bgn').value = res;
+                let ev = (r / R).toFixed(2);
+                document.getElementById('eur').value = ev;
+                let t = res.replace('.', ',') + " лв. са " + ev.replace('.', ',') + " евро";
+                document.getElementById('speech').innerText = t; sk(t);
+            } else {
+                document.getElementById('eur').value = res;
+                let lv = (r * R).toFixed(2);
+                document.getElementById('bgn').value = lv;
+                let t = res.replace('.', ',') + " евро са " + lv.replace('.', ',') + " лева";
+                document.getElementById('speech').innerText = t; sk(t);
+            }
+            exp = res;
+        } catch(e){ cl(); }
+    }
+
+    function sw() {
+        let c = document.getElementById('cont'), b = document.getElementById('f-bgn'), e = document.getElementById('f-eur');
+        if(c.firstElementChild === b) c.appendChild(b);
+        else c.insertBefore(b, e);
+    }
+
+    function sk(t) { window.speechSynthesis.cancel(); const m = new SpeechSynthesisUtterance(t); m.lang = 'bg-BG'; window.speechSynthesis.speak(m); }
+
+    function vc() {
+        const S = window.SpeechRecognition || window.webkitSpeechRecognition; if(!S) return;
+        const r = new S(); r.lang = 'bg-BG'; const b = document.getElementById('vBtn'); b.classList.add('on');
+        r.onresult = (e) => {
+            let t = e.results[0][0].transcript.toLowerCase();
+            let n = parseFloat(t.replace(',', '.').replace(/[^0-9.]/g,''));
+            if(!isNaN(n)){
+                if(t.includes('евро') || t.includes('цент')){
+                    if(t.includes('цент')) n /= 100;
+                    let ev = n.toFixed(2); let lv = (n * R).toFixed(2);
+                    document.getElementById('eur').value = ev;
+                    document.getElementById('bgn').value = lv;
+                    setActive('eur');
+                    let m = ev.replace('.', ',') + " евро са " + lv.replace('.', ',') + " лв.";
+                    document.getElementById('speech').innerText = m; sk(m);
+                } else {
+                    if(t.includes('стотинки') || t.includes(' ст')) n /= 100;
+                    let lv = n.toFixed(2); let ev = (n / R).toFixed(2);
+                    document.getElementById('bgn').value = lv;
+                    document.getElementById('eur').value = ev;
+                    setActive('bgn');
+                    let m = lv.replace('.', ',') + " лв. са " + ev.replace('.', ',') + " евро";
+                    document.getElementById('speech').innerText = m; sk(m);
+                }
+            }
+        };
+        r.onend = () => b.classList.remove('on'); r.start();
+    }
+</script>
+</body>
+</html>
