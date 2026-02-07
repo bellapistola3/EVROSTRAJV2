@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Евро Страж - Строителни Услуги София | Ремонт и Строителство 2026</title>
+    <meta name="description"
+        content="Професионални строителни услуги в София. Ремонт на апартаменти, къщи, офиси. Безплатна оглед и оферта. 15+ години опит. Евро Страж - вашият надежден партньор!">
+
+    <!-- SEO Meta Tags -->
+    <meta name="keywords"
+        content="строителни услуги софия, ремонт апартамент, строителна фирма, ремонт софия, строителство">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Евро Страж - Строителни Услуги София">
+    <meta property="og:description" content="Професионални строителни услуги. Безплатна оглед и оферта!">
+    <meta property="og:url" content="https://evrostrajv-2.vercel.app">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8552016454740259"
+        crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #e0e0e0;
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h2 {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .hero ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .hero li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .hero li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card h3 {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .service-card p {
+            color: #e0e0e0;
+        }
+
+        .lead-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            color: #333;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .lead-form h2 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1e3c72;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #1e3c72;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .ad-space {
+            min-height: 90px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .affiliate-section {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .affiliate-btn {
+            display: block;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .affiliate-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .success-message {
+            display: none;
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🏗️ ЕВРО СТРАЖ</h1>
+            <p class="tagline">Професионални Строителни Услуги в София</p>
+            <p style="margin-top: 10px; font-size: 1.1em;">📞 Обадете се сега: <strong style="color: #ffd700;">+359 888
+                    XXX XXX</strong></p>
+        </header>
+
+        <div class="hero">
+            <h2>Защо да изберете нас?</h2>
+            <ul>
+                <li>15+ години опит в строителството</li>
+                <li>Безплатен оглед и оферта за 24 часа</li>
+                <li>Гаранция за качество на всички услуги</li>
+                <li>Фиксирани цени - без скрити такси</li>
+                <li>Професионален екип с лицензи</li>
+                <li>Работим с най-качествени материали</li>
+            </ul>
+        </div>
+
+        <h2 style="text-align: center; margin-bottom: 25px; color: #ffd700;">Нашите Услуги</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3>🏠 Ремонт на Апартаменти</h3>
+                <p>Цялостен или частичен ремонт. Модерен дизайн, качествено изпълнение. От 50 лв/м²</p>
+            </div>
+            <div class="service-card">
+                <h3>🏢 Ремонт на Офиси</h3>
+                <p>Бързо и професионално. Работим извън работно време. Минимални смущения за бизнеса ви.</p>
+            </div>
+            <div class="service-card">
+                <h3>🏗️ Строителство</h3>
+                <p>Нови сгради, пристройки, реконструкции. Пълен строителен надзор и документация.</p>
+            </div>
+            <div class="service-card">
+                <h3>🎨 Довършителни Работи</h3>
+                <p>Шпакловка, боядисване, подови настилки, теракот, фаянс. Перфектно изпълнение.</p>
+            </div>
+            <div class="service-card">
+                <h3>🔧 ВиК и Ел. Инсталации</h3>
+                <p>Монтаж и ремонт на водопровод, канализация, ел. инсталации. Сертифицирани специалисти.</p>
+            </div>
+            <div class="service-card">
+                <h3>🪟 Дограма и Изолация</h3>
+                <p>PVC и алуминиева дограма. Топло и хидроизолация. Енергийна ефективност.</p>
+            </div>
+        </div>
+
+        <!-- AdSense Ad -->
+        <div class="ad-space">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8552016454740259"
+                data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Lead Generation Form -->
+        <div id="successMessage" class="success-message">
+            ✅ Благодарим ви! Вашето запитване е получено. Ще се свържем с вас в рамките на 2 часа!
+        </div>
+
+        <div class="lead-form">
+            <h2>📋 Получете Безплатна Оферта</h2>
+            <p style="text-align: center; margin-bottom: 20px; color: #666;">Попълнете формата и ще ви се обадим за 24
+                часа с точна оферта!</p>
+
+            <form id="leadForm" onsubmit="submitLead(event)">
+                <div class="form-group">
+                    <label for="name">Вашето Име *</label>
+                    <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+359 888 123 456">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email (опционално)</label>
+                    <input type="email" id="email" name="email" placeholder="ivan@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Вид Услуга *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Изберете услуга...</option>
+                        <option value="apartment">Ремонт на Апартамент</option>
+                        <option value="office">Ремонт на Офис</option>
+                        <option value="house">Ремонт на Къща</option>
+                        <option value="construction">Ново Строителство</option>
+                        <option value="finishing">Довършителни Работи</option>
+                        <option value="plumbing">ВиК Услуги</option>
+                        <option value="electrical">Ел. Инсталации</option>
+                        <option value="other">Друго</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="area">Площ (м²)</label>
+                    <input type="number" id="area" name="area" placeholder="80">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Допълнителна Информация</label>
+                    <textarea id="message" name="message"
+                        placeholder="Опишете накратко какво искате да направите..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">📞 ИСКАМ БЕЗПЛАТНА ОФЕРТА</button>
+            </form>
+        </div>
+
+        <!-- Affiliate Section -->
+        <div class="affiliate-section">
+            <h3 style="text-align: center; margin-bottom: 15px; color: #ffd700;">🛠️ Препоръчани Партньори</h3>
+            <a href="https://www.amazon.com/b?node=228013" target="_blank" rel="noopener" class="affiliate-btn">
+                🔨 Строителни Инструменти - Amazon
+            </a>
+            <a href="https://www.homedepot.com/" target="_blank" rel="noopener" class="affiliate-btn">
+                🏗️ Строителни Материали - Home Depot
+            </a>
+        </div>
+
+        <footer>
+            <p><strong>ЕВРО СТРАЖ</strong> - Вашият надежден партньор в строителството</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">София, България | Работно време: Пон-Съб 8:00-18:00</p>
+            <p style="margin-top: 10px; font-size: 0.8em; color: #ccc;">© 2026 Евро Страж. Всички права запазени.</p>
+        </footer>
+    </div>
+
+    <script>
+        function submitLead(event) {
+            event.preventDefault();
+
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                service: document.getElementById('service').value,
+                area: document.getElementById('area').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Log to console (in production, send to backend/email)
+            console.log('New Lead:', formData);
+
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('leadForm').reset();
+
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+
+            // TODO: Send to backend API or email service
+            // Example: fetch('/api/leads', { method: 'POST', body: JSON.stringify(formData) })
+        }
+    </script>
+</body>
+
+</html>
