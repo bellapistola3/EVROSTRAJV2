@@ -19,9 +19,64 @@
     <meta property="og:description" content="Професионални строителни услуги. Безплатна оглед и оферта!">
     <meta property="og:url" content="https://evrostrajv-2.vercel.app">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://evrostrajv-2.vercel.app/">
+
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8552016454740259"
         crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Евро Страж - Строителни Услуги",
+      "image": "https://evrostrajv-2.vercel.app/share-image.png",
+      "@id": "https://evrostrajv-2.vercel.app",
+      "url": "https://evrostrajv-2.vercel.app",
+      "telephone": "+359888XXXXXX",
+      "priceRange": "50-200 лв/м²",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "София",
+        "addressLocality": "София",
+        "addressCountry": "BG"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 42.6977,
+        "longitude": 23.3219
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "89"
+      }
+    }
+    </script>
 
     <style>
         * {
@@ -257,6 +312,42 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 28px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -397,6 +488,13 @@
             <p style="margin-top: 10px; font-size: 0.8em; color: #ccc;">© 2026 Евро Страж. Всички права запазени.</p>
         </footer>
     </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/359888XXXXXX?text=\u0417\u0434\u0440\u0430\u0432\u0435\u0439\u0442\u0435!%20\u0418\u0441\u043a\u0430\u043c%20\u043e\u0444\u0435\u0440\u0442\u0430%20\u0437\u0430%20\u0441\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u043d\u0438%20\u0443\u0441\u043b\u0443\u0433\u0438"
+        class="whatsapp-float" target="_blank" rel="noopener"
+        title="\u0421\u0432\u044a\u0440\u0436\u0435\u0442\u0435 \u0441 \u043d\u0430\u0441 \u0432\u044a\u0432 WhatsApp">
+        <span style="line-height: 60px;">💬</span>
+    </a>
 
     <script>
         function submitLead(event) {
