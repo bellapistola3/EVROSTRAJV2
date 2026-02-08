@@ -348,6 +348,26 @@
                 right: 20px;
             }
         }
+
+        /* Sticky Sidebar Ad */
+        .sticky-ad {
+            position: fixed;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 160px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        @media (max-width: 968px) {
+            .sticky-ad {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -400,14 +420,35 @@
             </div>
         </div>
 
-        <!-- AdSense Ad -->
-        <div class="ad-space">
+        <!-- Hero Section -->
+        <section class="hero">
+            <!-- AdSense Top Banner (High Visibility) -->
+            <div
+                style="text-align: center; margin: 0 auto 20px; max-width: 1200px; padding: 15px; background: rgba(0,0,0,0.4); border-radius: 12px;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8552016454740259"
+                    data-ad-slot="2234567891" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <div class="hero-content">
+                <!-- AdSense Ad -->
+                <div class="ad-space">
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8552016454740259"
+                        data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+            </div>
+        </section>
+
+        <!-- AdSense In-Content Ad (After Services) -->
+        <div
+            style="text-align: center; margin: 30px auto; max-width: 1200px; padding: 20px; background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.1)); border-radius: 12px;">
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8552016454740259"
-                data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                data-ad-slot="2234567892" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <!-- Lead Generation Form -->
+        <!-- Lead Generation Section -->
         <div id="successMessage" class="success-message">
             ✅ Благодарим ви! Вашето запитване е получено. Ще се свържем с вас в рамките на 2 часа!
         </div>
@@ -543,6 +584,14 @@
             // Example: fetch('/api/leads', { method: 'POST', body: JSON.stringify(formData) })
         }
     </script>
+
+    <!-- Sticky Sidebar Ad (Desktop Only) -->
+    <div class="sticky-ad">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8552016454740259"
+            data-ad-slot="2234567893" data-ad-format="vertical" data-full-width-responsive="false"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
 </body>
 
 </html>
