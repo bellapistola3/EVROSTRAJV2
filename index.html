@@ -417,7 +417,7 @@
             <p style="text-align: center; margin-bottom: 20px; color: #666;">Попълнете формата и ще ви се обадим за 24
                 часа с точна оферта!</p>
 
-            <form id="leadForm" onsubmit="submitLead(event)">
+            <form action="https://formspree.io/f/xwpkkvzv" method="POST">
                 <div class="form-group">
                     <label for="name">Вашето Име *</label>
                     <input type="text" id="name" name="name" required placeholder="Иван Иванов">
@@ -461,6 +461,23 @@
 
                 <button type="submit" class="submit-btn">📞 ИСКАМ БЕЗПЛАТНА ОФЕРТА</button>
             </form>
+
+            <!-- Newsletter Signup -->
+            <div
+                style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 12px; margin-top: 20px; text-align: center;">
+                <h3 style="color: #ffd700; margin-bottom: 10px; font-size: 1.1em;">📧 Абонирайте се за съвети</h3>
+                <p style="margin-bottom: 15px; color: #e0e0e0; font-size: 0.95em;">Получавайте безплатни съвети за
+                    ремонт и строителство!</p>
+                <form action="https://formspree.io/f/xwpkkvzv" method="POST"
+                    style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <input type="email" name="email" placeholder="Вашият email" required
+                        style="flex: 1; min-width: 200px; padding: 12px; border-radius: 8px; border: 2px solid #ddd; font-size: 16px;">
+                    <button type="submit"
+                        style="padding: 12px 25px; background: #4CAF50; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s;">
+                        АБОНИРАЙ СЕ
+                    </button>
+                </form>
+            </div>
         </div>
 
         <!-- Affiliate Section -->
